@@ -42,6 +42,10 @@ group(:dep_selector) do
   gem "dep-selector-libgecode"
 end
 
+## Until we resolve https://github.com/inspec/train/issues/548
+gem "train", "=3.2.0"
+gem "train-core", "=3.2.0"
+
 # We tend to track latest stable release without pinning.
 # In order to prevent the depsolver from downgrading we pin some floors with ">=".
 # We should only be using "~>" to work around bugs, or temporarily pinning some tech debt.
@@ -64,7 +68,7 @@ group(:omnibus_package) do
 
   # inspec
   gem "inspec-bin", "~> 4.18" # the actual inspec CLI binary
-  gem "inspec", "~> 4.18"
+  gem "inspec", "~> 4.18"		   gem "inspec", "= 4.18.39"
 
   # test-kitchen and plugins
   gem "test-kitchen", ">= 2.0"
